@@ -16,9 +16,12 @@ function List() {
     //fruits.sort((a, b) => b.name.localeCompare(a.name));//reverse alphabetical order
 
     //fruits.sort((a, b) => a.calories - b.calories);// sorting by calories numeric order
-    fruits.sort((a, b) => b.calories - a.calories);// reverse numeric order
+    //fruits.sort((a, b) => b.calories - a.calories);// reverse numeric order
 
-    const listItems = fruits.map((fruit) => <li key={fruit.id}>{fruit.name}: &nbsp; <b>{fruit.calories}</b></li>);
+
+    const lowCalFruits = fruits.filter(fruit => fruit.calories < 100);
+
+    const listItems = lowCalFruits.map((lowCalFruits) => <li key={lowCalFruits.id}>{lowCalFruits.name}: &nbsp; <b>{lowCalFruits.calories}</b></li>);
 
 
     return(<ol>{listItems}</ol>);
